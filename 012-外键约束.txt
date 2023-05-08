@@ -1,0 +1,30 @@
+##外键的值：一定 是来自于 另一张表的主键 所包含的值，或是null（可以为null）
+    外键 可以用联系表
+    ##一对多：一个学院可以有多个学生
+    ##一对一：每个学生都对应一条详情信息
+    ##多对多：就如 一个学生 可以选多个课程，而一个课程 可以有多个 学生；   需要创建 中间表
+    中间表 ： 外键（学生表主键） + 外键（课程表主键）   联合主键（防止组合重复）。
+
+##外键约束
+    创建表示 添加外键约束
+        CREATE TABLE stu_info (
+            id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            name varchar(9) NOT NULL,
+            aca_id int,
+            CONSTRAINT aca_id FOREIGN KEY(aca_id) REFERENCES aca_tab(id)
+            ON DELETE SET NULL)         添加外键、级联删除
+            AUTO_INCREMENT=10001 DEFAULT CHARSET=UTF8;
+
+        ALTER TABLE <主表> ADD CONSTRAINT <外键名> FOREIGN KEY(字段名) REFERENCES <参照表>(字段名);
+        
+    #添加级联删除，依赖性外键删除时字段值设置为空，针对一对多关系
+        ON DELETE SET NULL  
+    
+    #添加级联删除，依赖性都被删除，针对一对一关系
+        ON DELETE CASCADE  
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+##添加主键约束        （条件：非空+唯一
+    ##字段添加了主键约束之后，该字段不能为空值并且值不可以重复，     
+    ##也就是说主键约束包含了非空且唯一的条件
+        ALTER TABLE <数据表名> ADD PRIMARY KEY(字段名);
+        alter table stutab modify id int primary key;
+        注意: 自增约束包含 主键约束
+              一张表只能有一个主键约束
+
+    ##删除主键约束
+        ALTER TABLE <数据表名> DROP PRIMARY KEY;

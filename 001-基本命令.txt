@@ -1,0 +1,43 @@
+#登录
+    mysql -uadmin -p
+        u表示用户（user），登录用户，p表示密码（password）
+        回车 输入密码：qwe123 登录mysql
+    远程登录
+        h(host)指定ip地址 -p(port)指定sq端口3306
+        mysql -h127.0.0.1 -p3306 -uadmin -p
+
+mysql数据库不区分大小写，命令但是最好大写
+其次写完命令后都必须以分号进行结尾;
+
+"#" 		 	单行注释
+"-- "		 	单行注释
+/*  ……*/   	多行注释
+system clear 	清屏(要小写或者 ctrl+l)
+quit		 	退出
+
+SHOW DATABASES;         #查看数据库
+USE xxx;                #使用 某个数据库
+SELECT DATABASE();      # 查看自己正在使用的数据库
+SELECT user();          # 查看当前登录用户
+\G                      格式化输出
+format函数              设置精度(数值类型)
+concat函数              concat(字段1,"\t",字段2,"\t",字段3)，拼接输出
+
+创建用户
+    create user wufake@localhost identified by 'qwe123';
+删除用户
+    drop user wufake
+查看mysql所用的用户
+    SELECT User, Host FROM mysql.user;
+修改密码
+    set password for wufake@localhost=password("root");
+    flush privileges
+
+将提权给普通用户
+    1.关闭mysql服务
+    2.mysqld --skip-grant-tables 
+      让MySQL服务器跳过验证步骤，并且拥有所有的操作权限。
+    3.mysql -u...（随意），匿名形式进入mysql页面 
+    4.flush privileges  先要重载授权表(必要)
+    5.授权(所有权限) 普通用户
+      grant all privileges on *.* to wufake@localhost with grant option;

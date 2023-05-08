@@ -1,0 +1,21 @@
+SHOW DATABASES;         #查看数据库
+USE xxx;                #使用 某个数据库
+SELECT DATABASE();      # 查看自己正在使用的数据库
+SELECT user();          # 查看当前登录用户
+
+
+##CREATE创建数据库
+    CREATE DATABASE `库名`;     
+    #如果不存在创建，存在提示不创建
+        CREATE DATABASE IF NOT EXISTS `库名`; 
+
+
+#DROP删除数据库
+    DROP DATABASE `库名`;
+    #如果存在删除，不存在不做操作
+        DROP DATABASE IF EXISTS `库名`;  
+
+#进入数据库
+    use databases;
+
+

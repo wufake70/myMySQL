@@ -1,0 +1,10 @@
+##添加默认约束，
+    ##字段没有明确给数据时，添加默认约束的值
+        ALTER TABLE <数据表名> ALTER <字段名> SET DEFAULT <默认值>;
+    注意： 整型 不能设置 默认 约束，默认字符 长度 不能超过 限制
+    设置默认约束，就不能设置 非空约束
+
+    ##删除默认约束
+        ALTER TABLE <数据表名> ALTER <字段名> DROP DEFAULT;
+        ALTER TABLE <数据表名> ALTER <字段名> SET DEFAULT NULL;
+        ALTER TABLE stu_info CHANGE total total varchar(8) NULL;

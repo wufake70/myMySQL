@@ -1,0 +1,11 @@
+
+##添加唯一约束    ( id 是唯一的
+    ##唯一约束就是 该字段的值 不能重复，可以为空值      
+    #添加 唯一约束的字段
+        ALTER TABLE <数据表名> ADD CONSTRAINT <唯一约束名> UNIQUE( 字段名 ); （constraint 约束
+        alter table `stutab` modify id int unique;
+    注意： 可添加 多个 唯一约束 ，添加前 查看 原字段值 有没有重复的；
+
+    ##删除唯一约束
+        ALTER TABLE <数据表名> DROP INDEX <唯一约束名>;
+        alter table `stutab` drop index id;

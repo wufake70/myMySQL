@@ -1,0 +1,20 @@
+本地操作
+    导出指定数据库
+         mysqldump -uwufake -p --databases student > 1.sql
+    导出全部数据库
+        mysqldump -uwufake -p --all-databases  > 2.sql
+    导出数据表
+        mysqldump -uwufake -p --databases student --tables stutab > 1.sql
+    
+    以上 --databases、--tables都可 省略
+
+    导入数据库
+        source 关键字
+            登入mysql--->选择 数据库 ---> source C:/Users/yui/Desktop/student.sql;
+        需要指定 数据库
+            mysql -uwufake -p student < student.sql
+
+
+远程操作
+    需要加入 -h host -p 端口，两个参数
+    mysqldump -h192.168.194.234 -p3306 -uadmin -p Online_Course_answer > online_course_answer.sql

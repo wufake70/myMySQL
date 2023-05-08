@@ -1,0 +1,50 @@
+创建一个多对多关系表，例如: 课程与学生
+    课程表
+        mysql> create table coutab ( id int not null unique auto_increment,         # 这里的 "not null unique" 可以换成 "primary key"
+            -> name varchar(10) not null) 
+            -> auto_increment=10000 default charset =utf8;
+    
+    学生表 
+        mysql> create table stutab (id int primary key auto_increment,
+            -> name varchar(10) not null) 
+            -> auto_increment=10000 default charset =utf8;
+
+    中间表(映射表)
+        mysql> create table cou_stu ( 
+            -> cou_id int not null,
+            -> stu_id int not null,
+            -> primary key (cou_id,stu_id),     # primary key (cou_id,stu_id) 在关系表中不能存在相同的学生选了同一门课程的情况，从而确保了数据的正确性。
+            -> foreign key (cou_id) references coutab(id),
+            -> foreign key (cou_id) references stutab(id)
+            -> );
+    
+    插入数据
+        插入课程
+            insert into coutab (name) value ("Python"), ("Java"), ("C++"), ("JavaScript");
+        插入学生
+            mysql> insert into stutab (name) values
+                -> ("xiaoming"), ("xiaohong"), ("xiaozhang"), ("xiaohuang"), ("xiaolv"),
+                -> ("xiaomei"), ("xiaoqiang"), ("xiaolong"), ("xiaowang"), ("xiaochen");
+        插入对应关系
+            mysql> insert into cou_stu values
+                -> (10000,10000),
+                -> (10000,10001),
+                -> (10001,10002),
+                -> (10001,10003),
+                -> (10002,10004),
+                -> (10002,10005),
+                -> (10003,10006),
+                -> (10003,10007),
+                -> (10003,10008),
+                -> (10003,10009);
+        
+        注意: 插入重复的数据会报错 "Duplicate entry '10000-10001' for key 'PRIMARY'"
+
+
+
+
+
+
+
+
+

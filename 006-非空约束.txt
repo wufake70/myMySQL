@@ -1,0 +1,9 @@
+##添加非空约束    （添加 非空约束 的字段 不能为null 必须填值 否则报错）
+    ##非空约束也就是设定表的字段值不能为空值，也就是不为NULL（空值）
+    ALTER TABLE <数据表名> CHANGE COLUMN <字段名> <字段名> <数据类型> NOT NULL;
+    ALTER TABLE <数据表名> MODIFY COLUMN <字段名> <数据类型> NOT NULL;
+    注意： 不能给 已有 null的字段 添加 非空约束
+
+    ##删除非空约束(可以为null)
+        ALTER TABLE <数据表名> CHANGE COLUMN <字段名> <字段名> <数据类型> NULL;
+        ALTER TABLE <数据表名> MODIFY COLUMN <字段名> <数据类型> NULL;

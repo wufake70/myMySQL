@@ -1,0 +1,9 @@
+在创建表的时候 设置约束：
+mysql> CREATE TABLE stu (
+    -> id int PRIMARY KEY AUTO_INCREMENT,       设置 主键、自增
+    -> name varchar(30) NOT NULL,                   非空
+    -> sex varchar(3) DEFAULT '未定义',              默认
+    -> age int(3) DEFAULT NULL,
+    -> phone varchar(11) NOT NULL UNIQUE KEY)       非空、唯一
+    -> AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;     设置 自增起始值、编码格式
+    注意：设置 唯一约束时 自动将约束名 改为 字段名

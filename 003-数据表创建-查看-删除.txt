@@ -1,0 +1,30 @@
+SHOW DATABASES;         #查看数据库
+USE xxx;                #使用 某个数据库
+SELECT DATABASE();      # 查看自己正在使用的数据库
+SELECT user();          # 查看当前登录用户
+
+#CREATE创建表
+    CREATE TABLE [IF NOT EXISTS] `表名`(
+    #字段 （数据）类型,
+        id int(11),  #每个学生有一个字段id，id由数字组成，是一个整型, INT() 最大 100亿，不能超过
+        money BIGINT() ,可以更大
+        age TINYINT(),范围 0~150。
+        name varchar(20) #名字限制最多存储20个字符，varchar可变长度字符,必须传入一个值
+    );
+
+##SHOW查看数据库中的表格
+    SHOW TABLES; #查看当前数据库中的数据表
+    SHOW TABLES FROM `库名`;  #查看某个库中具体的表
+
+##查看数据表信息
+    #查看表的创建信息
+        SHOW CREATE TABLE `表名` \G;     (可用于查看 约束名 主键字段
+    #查看表字段 （field）信息:
+        DESC stu_name;  (desc 描述）
+        或者
+        SHOW COLUMNS FROM `表名`;
+
+#DROP删除表
+    DROP TABLE `表名`;
+
+

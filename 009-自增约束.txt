@@ -1,0 +1,12 @@
+##添加自增约束      （条件：非空+唯一+整型，即主键+整型，自增约束 可不用指定 相应字段
+    ##为字段数据自动添加编号
+    ##字段为唯一约束或主键约束才可以添加自增约束
+        ALTER TABLE <数据表名> CHANGE <字段名> <字段名> <整型> NOT NULL AUTO_INCREMENT;
+    
+    ##删除自增约束
+    #CHANGE修改删除自增
+        ALTER TABLE <数据表名> CHANGE COLUMN <字段名> <字段名> <数据类型> NOT NULL;
+    #删除主键约束
+        ALTER TABLE <数据表名> DROP PRIMARY KEY;
+
+        

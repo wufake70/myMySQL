@@ -1,0 +1,18 @@
+##外连接 (OUTER )
+    ##左外连接   LEFT OUTER(可不写) JOIN  (以左边的表为主，展示左边表的所有数据)
+        附表 条件不匹配的 不会展示(表现为null)
+        SELECT * FROM <表一> LEFT JOIN <表二> ON 连接条件;
+
+    ##右外连接   RIGHT JOIN (右连接和左连接类似，只是作用相反)
+        SELECT * FROM <表一> RIGHT JOIN <表二> ON 连接条件;
+
+    ##全外连接  FULL OUTER JOIN
+
+    例如:
+        select * from 
+        (select * from stutab,cou_stu where stutab.id=cou_stu.stu_id) as t1     #
+        left join 
+        coutab on t1.cou_id=10000;
+
+
+

@@ -1,0 +1,23 @@
+##多表查询
+##内连接(INNER) ：将两张表结合组成笛卡尔积表(列是两张表列相加，行是两张表行相乘)
+    #以下四种都一样（内连接无条件查询）
+        SELECT  *  FROM  <表一>  INNER JOIN  <表二>;
+        SELECT  *  FROM  <表一>,<表二>;
+        SELECT  *  FROM  <表一>  CROSS JOIN  <表二>;
+        SELECT  *  FROM  <表一>  JOIN  <表二>;
+    
+    #加上条件去查询（内连接条件查询）
+        SELECT * FROM <表一> INNER JOIN <表二>  ON  连接条件;  #使用join进行连接，添加条件的方式为ON
+        SELECT * FROM <表一> , <表二>  WHERE  连接条件;
+        SELECT * FROM <表一>  CROSS JOIN <表二>  WHERE 连接条件;
+
+    例如: 
+    将学生表 与 中间表 内连接
+        select * from stutab,cou_stu where stutab.id=cou_stu.stu_id;
+
+    将上述表 取别名 在内连接 课程表
+        select t1.id,t1.name,coutab.name from 
+        (select * from stutab,cou_stu where stutab.id=cou_stu.stu_id) as t1,    # 取别名
+        coutab where t1.cou_id=coutab.id;
+    
+    

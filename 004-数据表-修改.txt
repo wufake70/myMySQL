@@ -1,0 +1,30 @@
+##ALTER修改数据表
+    ##添加字段
+        ALTER TABLE `表名` ADD `字段` 类型;   #ADD单个字段添加
+
+    ALTER TABLE `表名` ADD(   #ADD多个字段添加
+        `字段1` 类型1,
+        `字段2` 类型2,
+        .....
+    );
+
+    ##删除字段
+        #DROP单个删除
+            ALTER TABLE `表名` DROP `字段`;  
+        #DROP多个删除
+            ALTER TABLE `表名` DROP `字段`,DROP `字段`; 
+
+    ##修改字段 类型
+        #MODIFY修改单个字段的类型
+            ALTER TABLE `表名` MODIFY `字段` 类型;  
+
+        ##同时修改字段名字和字段类型
+            #CHANGE修改单个字段的字段名和类型
+            ALTER TABLE `表名` CHANGE `字段` `新字段` 类型; 
+            注意： 可以将 整型 转换为 字符型，
+
+    ##修改表名
+        ALTER TABLE `表名` RENAME `新表名`;
+
+    ##desc查看字段信息
+        desc `表名`
