@@ -84,9 +84,12 @@ SELECT <字段1,字段2,....> FROM  `表名`  ORDER BY <参照字段升序> ASC 
 
 SELECT `字段名`,count(*) FROM  `表名`  GROUP BY <要统计的字段> HAVING <条件>;
 
+# 在不选择任何字段显示时，sum avg count max min 可以使用(即没有分组情况下可以使用)
+# sum 可以与if函数、case when then else end 使用
+# 实现在分组中进行给定的条件统计
 
 ##`sql`优化
-MYSQL执行顺序  SELECT-->WHERE-->GROUP BY-->ORDER BY --> LIMIT 2,4;
+MYSQL执行顺序  SELECT-->ON-->WHERE-->GROUP BY-->ORDER BY --> LIMIT 2,4;
 
 建议：创建表时尽量添加约束，想好对应关系，避免出现过多的重复值的，减少数据冗余。
 
