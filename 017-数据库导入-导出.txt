@@ -1,4 +1,4 @@
-本地操作
+本地操作(terminal执行，不是在数据中执行)
     导出指定数据库
          mysqldump -uwufake -p --databases student > 1.sql
     导出全部数据库
